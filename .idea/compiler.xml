@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="changgou_web" />
+        <module name="changgou_common" />
         <module name="changgou_gateway" />
         <module name="changgou_eureka" />
         <module name="changgou_service" />
@@ -15,6 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="changgou_common" target="1.8" />
       <module name="changgou_eureka" target="1.8" />
       <module name="changgou_gateway" target="1.8" />
       <module name="changgou_parent" target="1.8" />
@@ -27,6 +29,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Eureka" options="-parameters" />
+      <module name="changgou_common" options="-parameters" />
       <module name="changgou_eureka" options="-parameters" />
       <module name="changgou_gateway" options="-parameters" />
       <module name="changgou_parent" options="-parameters" />
