@@ -1,9 +1,11 @@
 package com.changgou.service.goods.controller;
 
+import com.changgou.common.pojo.PageResult;
 import com.changgou.common.pojo.Result;
 import com.changgou.common.pojo.StatusCode;
 import com.changgou.goods.pojo.Brand;
 import com.changgou.service.goods.service.BrandService;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,9 +58,23 @@ public class BrandController {
         brandService.delete(id);
         return new Result(true,StatusCode.OK,"删除品牌ojbk");
     }
+
+    /**
+     * 根据所传查询条件进行模糊查询
+     * @param searchMap
+     * @return
+     */
     @GetMapping("/search")
     public Result findList(@RequestParam Map searchMap){
         List<Brand> list = brandService.findList(searchMap);
         return new Result(true,StatusCode.OK,"查询成功",list);
+    }
+    @GetMapping("/search/{page}/{size}")
+    public Result findPage(@PathVariable int page,@PathVariable int size){
+        //Page<Brand> pageList = brandService.findPage(page, size);
+        Page<Brand> pageList = brandService.findPage(page, size);
+        //new PageResult(pageList.getTotal(),pageList.getResult())
+        PageResult pageResult=new PageResult(pageList.getTotal(),pageList.getResult());
+        return new Result(true,StatusCode.OK,"分页搜索ojbk",pageResult);
     }
 }

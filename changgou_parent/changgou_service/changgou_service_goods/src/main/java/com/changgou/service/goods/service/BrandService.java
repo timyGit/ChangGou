@@ -1,6 +1,8 @@
 package com.changgou.service.goods.service;
 
+
 import com.changgou.goods.pojo.Brand;
+import com.github.pagehelper.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -36,4 +38,12 @@ public interface BrandService {
      * @return
      */
     public List<Brand> findList(Map<String,Object> searchMap);
+
+    /**
+     * 分页查询
+     * @param page
+     * @param size
+     * @return
+     */
+    public Page<Brand> findPage(int page, int size);
 }

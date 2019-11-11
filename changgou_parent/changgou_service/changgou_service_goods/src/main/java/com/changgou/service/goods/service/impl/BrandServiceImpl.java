@@ -1,8 +1,11 @@
 package com.changgou.service.goods.service.impl;
 
+
 import com.changgou.goods.pojo.Brand;
 import com.changgou.service.goods.dao.BrandMapper;
 import com.changgou.service.goods.service.BrandService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -70,5 +73,11 @@ public class BrandServiceImpl implements BrandService {
             }
         }
         return brandMapper.selectByExample(example);
+    }
+
+    @Override
+    public Page<Brand> findPage(int page, int size) {
+        PageHelper.startPage(page,size);
+        return (Page<Brand>)brandMapper.selectAll();
     }
 }
