@@ -35,4 +35,13 @@ public class BrandController {
         brandService.add(brand);
         return new Result(true,StatusCode.OK,"添加Ojbk");
     }
+    /**
+     * 修改修改put
+     */
+    @PutMapping("/{id}")
+    public Result update(@RequestBody Brand brand,@PathVariable Integer id){
+        brand.setId(id);
+        brandService.update(brand);
+        return new Result(true,StatusCode.OK,"修改ojbj");
+    }
 }

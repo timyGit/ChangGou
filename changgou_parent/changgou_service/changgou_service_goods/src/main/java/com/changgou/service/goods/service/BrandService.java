@@ -19,4 +19,8 @@ public interface BrandService {
      * 新增品牌
      */
     public void add(Brand brand);
+    /**
+     * 修改品牌
+     */
+    public void update(Brand brand);
 }
