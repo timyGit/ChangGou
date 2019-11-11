@@ -8,7 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="changgou_eureka" />
         <module name="Eureka" />
-        <module name="changgou_service_goods_api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

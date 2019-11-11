@@ -7,7 +7,6 @@
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_parent.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_service/changgou_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_api.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_service_api/changgou_service_api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/changgou_parent/废弃代码/changgou_service_api/changgou_service_goods_api/changgou_service_goods_api.iml" filepath="$PROJECT_DIR$/changgou_parent/废弃代码/changgou_service_api/changgou_service_goods_api/changgou_service_goods_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/changgou_parent/changgou_web/changgou_web.iml" filepath="$PROJECT_DIR$/changgou_parent/changgou_web/changgou_web.iml" />
     </modules>
   </component>
