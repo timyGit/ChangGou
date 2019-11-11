@@ -75,9 +75,39 @@ public class BrandServiceImpl implements BrandService {
         return brandMapper.selectByExample(example);
     }
 
+    /**
+     * 分页查询
+     * @param page
+     * @param size
+     * @return
+     */
     @Override
     public Page<Brand> findPage(int page, int size) {
         PageHelper.startPage(page,size);
         return (Page<Brand>)brandMapper.selectAll();
+    }
+
+    /**
+     * 条件＋分页查询,双重查询
+     * @param searchMap
+     * @param page
+     * @param size
+     * @return
+     */
+    public Page<Brand> findPage(Map<String, Object> searchMap, int page, int size) {
+        PageHelper.startPage(page,size);
+        Example example = new Example(Brand.class);
+        Example.Criteria criteria = example.createCriteria();
+        if (searchMap!=null){
+            //配合品牌名称进行分页查询
+            if (searchMap.get("name")!=null&&!"".equals(searchMap.get("name"))){
+                criteria.andLike("name","%"+searchMap.get("name")+"%");
+            }
+            //配合品牌首字母
+            if (searchMap.get("letter")!=null&&!"".equals(searchMap.get("letter"))){
+                criteria.andLike("letter","%"+searchMap.get("letter")+"%");
+            }
+        }
+        return (Page<Brand>)brandMapper.selectByExample(example);
     }
 }
