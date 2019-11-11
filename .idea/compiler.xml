@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="changgou_service_goods_api" />
+        <module name="changgou_common" />
+        <module name="changgou_common_db" />
         <module name="changgou_eureka" />
         <module name="Eureka" />
+        <module name="changgou_service_goods" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,6 +22,7 @@
       <module name="changgou_parent" target="1.8" />
       <module name="changgou_service" target="1.8" />
       <module name="changgou_service_api" target="1.8" />
+      <module name="changgou_service_goods" target="1.8" />
       <module name="changgou_service_goods_api" target="1.8" />
       <module name="changgou_web" target="1.8" />
       <module name="Eureka" target="1.8" />
@@ -33,6 +38,7 @@
       <module name="changgou_parent" options="-parameters" />
       <module name="changgou_service" options="-parameters" />
       <module name="changgou_service_api" options="-parameters" />
+      <module name="changgou_service_goods" options="-parameters" />
       <module name="changgou_service_goods_api" options="-parameters" />
       <module name="changgou_web" options="-parameters" />
     </option>
