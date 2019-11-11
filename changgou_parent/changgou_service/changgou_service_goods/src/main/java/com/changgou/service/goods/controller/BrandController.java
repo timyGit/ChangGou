@@ -77,23 +77,23 @@ public class BrandController {
      * @return
      */
     @GetMapping("/search/{page}/{size}")
-    public Result findPage(@PathVariable int page,@PathVariable int size){
+    public Result findPage(@RequestParam Map searchMap,@PathVariable int page,@PathVariable int size){
         //Page<Brand> pageList = brandService.findPage(page, size);
-        Page<Brand> pageList = brandService.findPage(page, size);
+        Page<Brand> pageList = brandService.findPage(searchMap,page, size);
         //new PageResult(pageList.getTotal(),pageList.getResult())
         PageResult pageResult=new PageResult(pageList.getTotal(),pageList.getResult());
         return new Result(true,StatusCode.OK,"分页搜索ojbk",pageResult);
     }
     /**
-     * 分页查询功能
+     * 分页查询加条件
      * @param page
      * @param size
      * @return
      */
-    @GetMapping("/search/{page}/{size}")
-    public Page<Brand> findPage(@RequestParam Map searchMap,@PathVariable int page,@PathVariable int size){
-        Page<Brand> findPageByMap = brandService.findPage(searchMap, page, size);
-        return findPageByMap;
-    }
+   // @GetMapping("/search/{page}/{size}")
+//    public Page<Brand> findPage(@RequestParam Map searchMap,@PathVariable int page,@PathVariable int size){
+//        Page<Brand> findPageByMap = brandService.findPage(searchMap, page, size);
+//        return findPageByMap;
+//    }
 
 }
