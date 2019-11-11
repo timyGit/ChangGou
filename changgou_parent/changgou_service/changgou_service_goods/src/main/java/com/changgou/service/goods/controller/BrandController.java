@@ -44,4 +44,15 @@ public class BrandController {
         brandService.update(brand);
         return new Result(true,StatusCode.OK,"修改ojbj");
     }
+
+    /**
+     * 根据id进行删除
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public Result delete(@PathVariable Integer id){
+        brandService.delete(id);
+        return new Result(true,StatusCode.OK,"删除品牌ojbk");
+    }
 }

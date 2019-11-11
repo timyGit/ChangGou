@@ -39,4 +39,12 @@ public class BrandServiceImpl implements BrandService {
     public void update(Brand brand) {
         brandMapper.updateByPrimaryKeySelective(brand);
     }
+
+    /**
+     * 根据id删除数据
+     * @param id
+     */
+    public void delete(Integer id){
+        brandMapper.deleteByPrimaryKey(id);
+    }
 }

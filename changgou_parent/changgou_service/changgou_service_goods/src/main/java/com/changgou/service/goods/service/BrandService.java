@@ -23,4 +23,9 @@ public interface BrandService {
      * 修改品牌
      */
     public void update(Brand brand);
+    /**
+     * 删除品牌了了了了了了了
+     * @param id
+     */
+    public void delete(Integer id);
 }
