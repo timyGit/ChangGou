@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/brand")
@@ -54,5 +55,10 @@ public class BrandController {
     public Result delete(@PathVariable Integer id){
         brandService.delete(id);
         return new Result(true,StatusCode.OK,"删除品牌ojbk");
+    }
+    @GetMapping("/search")
+    public Result findList(@RequestParam Map searchMap){
+        List<Brand> list = brandService.findList(searchMap);
+        return new Result(true,StatusCode.OK,"查询成功",list);
     }
 }

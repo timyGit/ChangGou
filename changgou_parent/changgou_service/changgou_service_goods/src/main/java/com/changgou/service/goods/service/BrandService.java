@@ -3,6 +3,7 @@ package com.changgou.service.goods.service;
 import com.changgou.goods.pojo.Brand;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BrandService {
     /**
@@ -28,4 +29,11 @@ public interface BrandService {
      * @param id
      */
     public void delete(Integer id);
+
+    /**
+     * 多条件搜索品牌数据的方法
+     * @param searchMap
+     * @return
+     */
+    public List<Brand> findList(Map<String,Object> searchMap);
 }

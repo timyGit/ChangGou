@@ -5,8 +5,10 @@ import com.changgou.service.goods.dao.BrandMapper;
 import com.changgou.service.goods.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class BrandServiceImpl implements BrandService {
@@ -46,5 +48,27 @@ public class BrandServiceImpl implements BrandService {
      */
     public void delete(Integer id){
         brandMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 条件查询
+     * 具体是怎么个操作还没有弄清楚,先敲为敬
+     * @param searchMap
+     * @return
+     */
+    public List<Brand> findList(Map<String, Object> searchMap) {
+        Example example = new Example(Brand.class);
+        Example.Criteria criteria = example.createCriteria();
+        if (searchMap!=null){
+            //品牌名称
+            if (searchMap.get("name")!=null&&!"".equals(searchMap.get("name"))){
+                criteria.andLike("name","%"+searchMap.get("name")+"%");
+            }
+            //根据品牌的首字母进行查询
+            if (searchMap.get("letter")!=null&&!"".equals(searchMap.get("letter"))){
+                criteria.andLike("letter","%"+searchMap.get("letter")+"%");
+            }
+        }
+        return brandMapper.selectByExample(example);
     }
 }
