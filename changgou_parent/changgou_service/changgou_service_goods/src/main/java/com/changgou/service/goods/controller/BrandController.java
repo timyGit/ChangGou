@@ -5,10 +5,7 @@ import com.changgou.common.pojo.StatusCode;
 import com.changgou.goods.pojo.Brand;
 import com.changgou.service.goods.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,13 @@ public class BrandController {
     public Result findById(@PathVariable Integer id){
         Brand brand = brandService.findById(id);
         return new Result(true,StatusCode.OK,"根据id查Ojbk",brand);
+    }
+    /**
+     * 新增品牌数据
+     */
+    @PostMapping
+    public Result add(@RequestBody Brand brand){
+        brandService.add(brand);
+        return new Result(true,StatusCode.OK,"添加Ojbk");
     }
 }

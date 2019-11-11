@@ -14,4 +14,9 @@ public interface BrandService {
      * 根据id查询
      */
     public Brand findById(Integer id);
+
+    /**
+     * 新增品牌
+     */
+    public void add(Brand brand);
 }
